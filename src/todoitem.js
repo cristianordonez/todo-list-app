@@ -1,8 +1,10 @@
 import React from 'react';
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
+import Paper from "@mui/material/Paper";
 import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction";
 import Checkbox from '@mui/material/Checkbox';
+import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
@@ -18,48 +20,59 @@ function TodoItem({task, completed, removeToDo, id, handleEdit, addToDo}) {
   const [isEditing, setIsEditing] = useToggleState(false);
   const [value, handleChange, reset] = useInputState('');
 
+  //* will render normally if isEditing is false, otherwise will render text fiedl
   return (
-    <div className="todoitem">
+    <div>
       {isEditing
       ?
-        <div>
-      <TextField
-      onChange={handleChange}
-      value={value}
-      label='edit to do'
-      variant="outlined"
-       />
+      <Grid container spacing={6} m={4} alignItems="center" justifyContent="center space-evenly">
+        <TextField
+          onChange={handleChange}
+          value={value}
+          label={`Edit Todo: ${task}`}
+          variant="outlined"
+        />
          <Button
-         onClick={e =>{
-          handleEdit(id, value)
-          reset();
-          setIsEditing();
-         }  }
-         type="submit"
-        variant="outlined"
-        startIcon={<PublishIcon />}
+          onClick={e =>{
+            handleEdit(id, value)
+            // setIsOn();
+            reset();
+            setIsEditing();
+          }}
+          type="submit"
+          color="success"
+          startIcon={<PublishIcon />}
+          >
+          Submit Todo
+          </Button>
+          <Button color="error" onClick={e => setIsEditing()} aria-label="Cancel" startIcon={<CancelIcon />}>
+            Cancel
+          </Button>
+          </Grid>
+      :
+      <Paper style={{
+        margin: 4,
+        padding: 1
+      }}
+        elevation={4}
       >
-        Edit Todo
-      </Button>
-        <IconButton onClick={e => setIsEditing()} aria-label="Cancel">
-          <CancelIcon />
-        </IconButton>
-        </div>
-      :<ListItem >
+      <ListItem >
         <Checkbox checked={isOn} onChange={e => {setIsOn()}}/>
         <ListItemText style={{textDecoration: isOn ? 'line-through' : 'none'}}
         >{task}</ListItemText>
         <ListItemSecondaryAction>
-        <IconButton onClick={e => setIsEditing()}  aria-label='Edit'>
-          <EditIcon />
-        </IconButton>
-        <IconButton onClick={() => removeToDo(id)} aria-label="Delete">
-          <DeleteIcon />
-        </IconButton>
+          <IconButton onClick={e => setIsEditing()}  aria-label='Edit'>
+            <EditIcon />
+          </IconButton>
+          <IconButton onClick={() => removeToDo(id)} aria-label="Delete">
+            <DeleteIcon />
+          </IconButton>
         </ListItemSecondaryAction>
       </ListItem>
+      </Paper>
       }
-    </div>
+
+</div>
   )
 }
 

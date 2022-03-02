@@ -6,7 +6,12 @@ import TodoItem from './todoitem.js';
 function TodoList({ removeToDo, todos, handleEdit, addToDo }) {
 
   return (
-    <Paper>
+    <Paper style={{
+      margin: 4,
+      padding: 0
+    }}
+      elevation={0}
+    >
       <List>
       {todos.map(todo => (
           <TodoItem

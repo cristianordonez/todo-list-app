@@ -43,7 +43,7 @@ function ToDoApp()  {
         <AppBar color='primary' position='static' style={{ height: "64px" }}>
           <Toolbar>
             <Typography color='inherit'>
-                TODOS WITH HOOKS
+                CRISTIAN'S TODO APP WITH REACT HOOKS
             </Typography>
           </Toolbar>
         </AppBar>
