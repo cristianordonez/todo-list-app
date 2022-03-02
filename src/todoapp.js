@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import AppBar from "@mui/material/AppBar";
@@ -9,7 +9,15 @@ import {v4 as uuid} from 'uuid';
 
 function ToDoApp()  {
   //*setting initial state with empty array which will be filled with todo objects
-  const [todos, setTodos] = useState([]);
+  const initialTodos = JSON.parse(window.localStorage.getItem("todos") || "[]");
+
+  //* setting the state
+  const [todos, setTodos] = useState(initialTodos);
+
+  //* setting useEffect so it only renders when todos are added
+  useEffect(() => {
+    window.localStorage.setItem("todos", JSON.stringify(todos)) ;
+  }, [todos]);
 
   //*handling adding a todo to the todo state
   const addToDo = newTodoText => {

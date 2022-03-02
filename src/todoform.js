@@ -14,9 +14,8 @@ function TodoForm(props) {
   //*form control will updata value on change, and on submit will create new todo
   return (
     <div className="todoform">
-      {/* <Stack spacing={2} direction="column" justifyContent="center" alignItems="center stretch" m={3}> */}
+
             <form  onSubmit={e => {
-              console.log('clicked')
               e.preventDefault();
               props.addToDo(value);
               reset();
@@ -26,19 +25,19 @@ function TodoForm(props) {
             value={value}
             label="Enter New Todo"
             variant="outlined"
-          />
+            sx={{ width: 600 }}
+            />
 
           <Button type="submit"
             variant="outlined"
             sx={{ height: "56px" }}
             disabled={!value}
             startIcon={<AddIcon />}
-          >
+            >
           Add Todo
           </Button>
 
           </form>
-          {/* </Stack> */}
 
     </div>
 

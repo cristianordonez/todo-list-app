@@ -26,13 +26,13 @@ function TodoItem({task, completed, removeToDo, id, handleEdit, addToDo}) {
     <div className="todoitem">
       {isEditing
       ?
-      // <Grid container spacing={6} m={4} alignItems="center" justifyContent="center space-evenly">
-<Paper style={{
-  margin: 4,
-  padding: 5
-}}
-  elevation={8}
->
+
+      <Paper style={{
+        margin: 4,
+        padding: 5
+      }}
+        elevation={8}
+      >
         <form onSubmit={e =>{
             e.preventDefault()
             handleEdit(id, value)
@@ -40,11 +40,7 @@ function TodoItem({task, completed, removeToDo, id, handleEdit, addToDo}) {
             reset();
             setIsEditing();
           }}>
-
           <div className="todoitem-edit-form">
-
-
-
         <TextField
           onChange={handleChange}
           value={value}
