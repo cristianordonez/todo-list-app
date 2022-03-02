@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles/todoitem.css';
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Paper from "@mui/material/Paper";
@@ -22,10 +23,16 @@ function TodoItem({task, completed, removeToDo, id, handleEdit, addToDo}) {
 
   //* will render normally if isEditing is false, otherwise will render text fiedl
   return (
-    <div>
+    <div className="todoitem">
       {isEditing
       ?
-      <Grid container spacing={6} m={4} alignItems="center" justifyContent="center space-evenly">
+      // <Grid container spacing={6} m={4} alignItems="center" justifyContent="center space-evenly">
+<Paper style={{
+  margin: 4,
+  padding: 5
+}}
+  elevation={8}
+>
         <form onSubmit={e =>{
             e.preventDefault()
             handleEdit(id, value)
@@ -34,11 +41,16 @@ function TodoItem({task, completed, removeToDo, id, handleEdit, addToDo}) {
             setIsEditing();
           }}>
 
+          <div className="todoitem-edit-form">
+
+
+
         <TextField
           onChange={handleChange}
           value={value}
           label={`Edit Todo: ${task}`}
           variant="outlined"
+          sx={{ width: 600 }}
         />
          <Button
           type="submit"
@@ -50,14 +62,16 @@ function TodoItem({task, completed, removeToDo, id, handleEdit, addToDo}) {
           <Button color="error" onClick={e => setIsEditing()} aria-label="Cancel" startIcon={<CancelIcon />}>
             Cancel
           </Button>
+          </div>
         </form>
-          </Grid>
+          {/* // </Grid> */}
+          </Paper>
       :
       <Paper style={{
         margin: 4,
         padding: 1
       }}
-        elevation={4}
+        elevation={2}
       >
       <ListItem >
         <Checkbox checked={isOn} onChange={e => {setIsOn()}}/>
