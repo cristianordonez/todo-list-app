@@ -6,13 +6,18 @@ import Toolbar from "@mui/material/Toolbar";
 import TodoList from './todolist';
 import TodoForm from './todoform';
 import {v4 as uuid} from 'uuid';
+import useLocalStorageState from './hooks/useLocalStorageState';
 
 function ToDoApp()  {
-  //*setting initial state with empty array which will be filled with todo objects
-  const initialTodos = JSON.parse(window.localStorage.getItem("todos") || "[]");
+
+  // useLocalStorageState("todos", [])
+
+  //*setting initial state with default todo
+  // const initialTodos = JSON.parse(window.localStorage.getItem("todos") || "[]");
+  const initialTodos = [{ id: 1, task: "Try editing this sample todo", completed: false }];
 
   //* setting the state
-  const [todos, setTodos] = useState(initialTodos);
+  const [todos, setTodos] = useLocalStorageState("todos", initialTodos);
 
   //* setting useEffect so it only renders when todos are added
   useEffect(() => {
