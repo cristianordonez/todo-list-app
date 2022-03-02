@@ -8,7 +8,7 @@ import UseInputState from './hooks/UseInputState.js'
 
 function TodoForm(props) {
   //use the imported hook to get change
-  console.log(props.addtodos);
+  //can take in optional third arg
   const [value, handleChange, reset] = UseInputState('')
 
   return (

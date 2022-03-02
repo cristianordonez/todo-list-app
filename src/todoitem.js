@@ -9,8 +9,8 @@ import EditIcon from '@mui/icons-material/Edit';
 import ToggleState from './hooks/ToggleState.js'
 
 
-function TodoItem({task, completed}) {
-  console.log(task)
+function TodoItem({task, completed, removeToDo, id}) {
+
   const [isOn, setIsOn] = ToggleState(completed);
 
 
@@ -22,13 +22,12 @@ function TodoItem({task, completed}) {
       <ListItemText style={{textDecoration: isOn ? 'line-through' : 'none'}}
       >{task}</ListItemText>
       <ListItemSecondaryAction>
-      <IconButton aria-label='Delete'>
+      <IconButton  aria-label='Edit'>
         <EditIcon />
       </IconButton>
-      <IconButton>
+      <IconButton onClick={() => removeToDo(id)} aria-label="Delete">
         <DeleteIcon />
       </IconButton>
-
       </ListItemSecondaryAction>
     </ListItem>
 

@@ -9,26 +9,22 @@ import TodoForm from './todoform';
 import {v4 as uuid} from 'uuid';
 
 function ToDoApp()  {
-  // const initialTodos = [
-  //   { id: 1, task: "clean fishtank", completed:false },
-  //   { id: 1, task: "clean room", completed:false },
-  //   { id: 1, task: "clean car", completed:false }
-  // ]
+
   const [todos, setTodos] = useState([]);
-/*above is the same as doing this below, expect in only one line *
-  const todoappState = useState('');
-  const todo = todoappState[0];
-  const settodo = todoappState[1];
- *
- */
-const addToDo = newTodoText => {
-  console.log(newTodoText);
+
+  const addToDo = newTodoText => {
   setTodos([...todos, {id: uuid(), task: newTodoText, completed:false}])
-  console.log(todos);
 }
 
 
-// addTodos('test')
+//handle removing the todo from the list
+  const removeToDo = id => {
+    console.log('test')
+    const newTodosList = todos.filter((item) => item.id !== id);
+    console.log(newTodosList);
+    console.log(id);
+    setTodos(newTodosList);
+  }
 
 
     return (
@@ -49,7 +45,7 @@ const addToDo = newTodoText => {
           </Toolbar>
         </AppBar>
         <TodoForm addToDo={addToDo}/>
-        <TodoList todos={todos} />
+        <TodoList todos={todos}  removeToDo={removeToDo}/>
       </Paper>
 		)
 
