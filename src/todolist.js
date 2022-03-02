@@ -4,7 +4,7 @@ import List from "@mui/material/List";
 import TodoItem from './todoitem.js';
 
 function TodoList(props) {
-  // console.log(props.todos)
+  console.log(props.todos)
   return (
     <Paper>
       <List>
