@@ -19,7 +19,7 @@ import Button from "@mui/material/Button";
 function TodoItem({task, completed, removeToDo, id, handleEdit, addToDo}) {
   const [isOn, setIsOn] = useToggleState(completed);
   const [isEditing, setIsEditing] = useToggleState(false);
-  const [value, handleChange, reset] = useInputState('');
+  const [value, handleChange, reset] = useInputState(task);
 
   //* will render normally if isEditing is false, otherwise will render text fiedl
   return (
