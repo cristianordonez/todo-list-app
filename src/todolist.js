@@ -9,7 +9,7 @@ function TodoList(props) {
     <Paper>
       <List>
       {props.todos.map(todo => (
-          <TodoItem  task={todo.task}/>
+          <TodoItem key={todo.id}  task={todo.task} completed={todo.completed}/>
 
 
 

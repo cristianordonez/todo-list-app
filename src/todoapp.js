@@ -6,14 +6,15 @@ import Toolbar from "@mui/material/Toolbar";
 import Grid from "@mui/material/Grid";
 import TodoList from './todolist';
 import TodoForm from './todoform';
+import {v4 as uuid} from 'uuid';
 
 function ToDoApp()  {
-  const initialTodos = [
-    { id: 1, task: "clean fishtank", completed:false },
-    { id: 1, task: "clean room", completed:false },
-    { id: 1, task: "clean car", completed:false }
-  ]
-  const [todos, setTodos] = useState(initialTodos);
+  // const initialTodos = [
+  //   { id: 1, task: "clean fishtank", completed:false },
+  //   { id: 1, task: "clean room", completed:false },
+  //   { id: 1, task: "clean car", completed:false }
+  // ]
+  const [todos, setTodos] = useState([]);
 /*above is the same as doing this below, expect in only one line *
   const todoappState = useState('');
   const todo = todoappState[0];
@@ -22,9 +23,10 @@ function ToDoApp()  {
  */
 const addToDo = newTodoText => {
   console.log(newTodoText);
-  setTodos([...todos, {id: 1, task: newTodoText, completed:false}])
+  setTodos([...todos, {id: uuid(), task: newTodoText, completed:false}])
   console.log(todos);
 }
+
 
 // addTodos('test')
 
