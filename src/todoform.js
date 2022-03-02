@@ -14,7 +14,12 @@ function TodoForm(props) {
   return (
 
     <Stack spacing={2} direction="column" justifyContent="center" alignItems="center stretch" m={3}>
-
+      <form  onSubmit={e => {
+            console.log('clicked')
+            e.preventDefault();
+            props.addToDo(value);
+            reset();
+          }}>
         <TextField
           onChange={handleChange}
           value={value}
@@ -24,17 +29,14 @@ function TodoForm(props) {
 
         <Button type="submit"
           variant="outlined"
-          onClick={e => {
-            console.log('clicked')
-            e.preventDefault();
-            props.addToDo(value);
-            reset();
-          }}
+
           disabled={!value}
           startIcon={<AddIcon />}
         >
         Add Todo
         </Button>
+
+      </form>
       </Stack>
 
 

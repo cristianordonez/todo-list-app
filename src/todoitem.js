@@ -26,6 +26,14 @@ function TodoItem({task, completed, removeToDo, id, handleEdit, addToDo}) {
       {isEditing
       ?
       <Grid container spacing={6} m={4} alignItems="center" justifyContent="center space-evenly">
+        <form onSubmit={e =>{
+            e.preventDefault()
+            handleEdit(id, value)
+            // setIsOn();
+            reset();
+            setIsEditing();
+          }}>
+
         <TextField
           onChange={handleChange}
           value={value}
@@ -33,12 +41,6 @@ function TodoItem({task, completed, removeToDo, id, handleEdit, addToDo}) {
           variant="outlined"
         />
          <Button
-          onClick={e =>{
-            handleEdit(id, value)
-            // setIsOn();
-            reset();
-            setIsEditing();
-          }}
           type="submit"
           color="success"
           startIcon={<PublishIcon />}
@@ -48,6 +50,7 @@ function TodoItem({task, completed, removeToDo, id, handleEdit, addToDo}) {
           <Button color="error" onClick={e => setIsEditing()} aria-label="Cancel" startIcon={<CancelIcon />}>
             Cancel
           </Button>
+        </form>
           </Grid>
       :
       <Paper style={{
