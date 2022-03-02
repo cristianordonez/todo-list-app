@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
 import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -12,40 +12,31 @@ function TodoForm(props) {
 
   //*form control will updata value on change, and on submit will create new todo
   return (
-  <FormControl onSubmit={e => {
-    e.preventDefault();
-    props.addToDo(value);
-    reset();
-  }}>
-    <Grid container
-      direction="row"
-      justifyContent="center"
-      alignItems="center"
-      component="form"
-      m={2}
-      p={1}
-    >
-    <Grid item>
-      <TextField
-        onChange={handleChange}
-        size="small"
-        value={value}
-        label="Enter New Todo"
-        variant="outlined"
-      />
-    </Grid>
-    <Grid item>
-      <Button type="submit"
-        variant="outlined"
-        size="small"
-        disabled={!value}
-        startIcon={<AddIcon />}
-      >
-      Add Todo
-      </Button>
-      </Grid>
-    </Grid>
-  </FormControl>
+
+    <Stack spacing={2} direction="column" justifyContent="center" alignItems="center stretch" m={3}>
+
+        <TextField
+          onChange={handleChange}
+          value={value}
+          label="Enter New Todo"
+          variant="outlined"
+        />
+
+        <Button type="submit"
+          variant="outlined"
+          onClick={e => {
+            console.log('clicked')
+            e.preventDefault();
+            props.addToDo(value);
+            reset();
+          }}
+          disabled={!value}
+          startIcon={<AddIcon />}
+        >
+        Add Todo
+        </Button>
+      </Stack>
+
 
   )
 }

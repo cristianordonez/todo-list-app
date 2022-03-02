@@ -8,21 +8,21 @@ import TodoForm from './todoform';
 import {v4 as uuid} from 'uuid';
 
 function ToDoApp()  {
-  //setting initial state with empty array which will be filled with todo objects
+  //*setting initial state with empty array which will be filled with todo objects
   const [todos, setTodos] = useState([]);
 
-  //handling adding a todo to the todo state
+  //*handling adding a todo to the todo state
   const addToDo = newTodoText => {
     setTodos([...todos, {id: uuid(), task: newTodoText, completed:false}])
   }
 
-//handle removing the todo from the list
+//*handle removing the todo from the list
   const removeToDo = id => {
     const newTodosList = todos.filter((item) => item.id !== id);
     setTodos(newTodosList);
   }
 
-  //handle updating the todo list given id & new text of todo
+  //*handle updating the todo list given id & new text of todo
   const handleEdit = (id, newTask) => {
    const updatedTodos = todos.map(todo =>
     todo.id === id ? { ...todo, task: newTask } : todo
@@ -48,7 +48,12 @@ function ToDoApp()  {
           </Toolbar>
         </AppBar>
         <TodoForm addToDo={addToDo}/>
-        <TodoList addToDo={addToDo} handleEdit={handleEdit} todos={todos}  removeToDo={removeToDo}/>
+        <TodoList
+          addToDo={addToDo}
+          handleEdit={handleEdit}
+          todos={todos}
+          removeToDo={removeToDo}
+        />
       </Paper>
 		)
 }
