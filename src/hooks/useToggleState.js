@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 //* toggles element of state on and off
-function ToggleState() {
+function useToggleState() {
   //set default of element isOn to false
   const [isOn, setIsOn] = useState(false);
   //will toggle to opposite of isOn when toggled
@@ -12,4 +12,4 @@ function ToggleState() {
   return [isOn, handleToggle];
 }
 
-export default ToggleState;
+export default useToggleState;

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 //* handles using input from forms or user input
-function UseInputState(initialValue) {
+function useInputState(initialValue) {
   const [value, setValue] = useState(initialValue);
   const handleChange = e => {
     setValue(e.target.value);
@@ -14,4 +14,4 @@ function UseInputState(initialValue) {
 }
 
 
-export default UseInputState;
+export default useInputState;

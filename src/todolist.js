@@ -9,16 +9,18 @@ function TodoList(props) {
     <Paper>
       <List>
       {props.todos.map(todo => (
-          <TodoItem  removeToDo={props.removeToDo} key={todo.id} id={todo.id}  task={todo.task} completed={todo.completed}/>
-
-
-
+          <TodoItem
+            removeToDo={props.removeToDo}
+            key={todo.id}
+            id={todo.id}
+            task={todo.task}
+            completed={todo.completed}
+            handleEdit={props.handleEdit}
+            addToDo={props.addToDo}
+           />
           ))}
-
       </List>
-
     </Paper>
-
   )
 }
 
