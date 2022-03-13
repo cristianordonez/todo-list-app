@@ -1,19 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
+import Box from "@mui/material/Box";
 import TodoList from './todolist';
 import TodoForm from './todoform';
 import {v4 as uuid} from 'uuid';
 import useLocalStorageState from './hooks/useLocalStorageState';
+import {TodosContext} from './context/todos.context.js'
 
 function ToDoApp()  {
+  //#this is used to import the context in functional components, otherwise use static contextType
+  const context = useContext(TodosContext);
+  console.log('context:', context);
 
-  // useLocalStorageState("todos", [])
-
+  // console.log('this.context:', this.context);
   //*setting initial state with default todo
-  // const initialTodos = JSON.parse(window.localStorage.getItem("todos") || "[]");
   const initialTodos = [{ id: 1, task: "Try editing this sample todo", completed: false }];
 
   //* setting the state
@@ -60,6 +63,8 @@ function ToDoApp()  {
             </Typography>
           </Toolbar>
         </AppBar>
+
+
         <TodoForm addToDo={addToDo}/>
         <TodoList
           addToDo={addToDo}
@@ -67,6 +72,7 @@ function ToDoApp()  {
           todos={todos}
           removeToDo={removeToDo}
         />
+
       </Paper>
 		)
 }

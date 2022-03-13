@@ -31,7 +31,7 @@ function TodoItem({task, completed, removeToDo, id, handleEdit, addToDo}) {
         margin: 4,
         padding: 5
       }}
-        elevation={8}
+        elevation={10}
       >
         <form onSubmit={e =>{
             e.preventDefault()
