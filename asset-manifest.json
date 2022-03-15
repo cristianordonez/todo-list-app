@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/todolist-hooks-app/static/css/main.a9480f0e.css",
+    "main.js": "/todolist-hooks-app/static/js/main.c12af64c.js",
+    "index.html": "/todolist-hooks-app/index.html",
+    "main.a9480f0e.css.map": "/todolist-hooks-app/static/css/main.a9480f0e.css.map",
+    "main.c12af64c.js.map": "/todolist-hooks-app/static/js/main.c12af64c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a9480f0e.css",
+    "static/js/main.c12af64c.js"
+  ]
+}
