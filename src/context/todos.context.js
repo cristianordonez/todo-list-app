@@ -1,30 +1,21 @@
-import React, { Component, createContext} from "react";
+import React, { createContext, useReducer } from "react";
+import reducer from '../reducers/todo.reducer.js';
 
-//all themes
-const themes = {
-  light: {
-    foreground: '#000000',
-    background: '#eeeeee',
-  },
-  dark: {
-    foreground: '#ffffff',
-    background: '#222222',
-  },
-};
+const initialTodos = [
+  { id: 1, task: "Try editing this sample todo", completed: false }
+];
 
-//create the context
+//#create the context
 export const TodosContext = createContext();
 
-//everytime you run createcontect, you get a provider as well
-//will provider
-export class TodosProvider extends Component {
-
-  render() {
+//#everytime you run createcontect, you get a provider as well
+export function TodosProvider(props) {
+    const [todos, dispatch] = useReducer(reducer, initialTodos);
     return(
-    <TodosContext.Provider value={themes}>
-      {this.props.children}
+    <TodosContext.Provider value={{ todos, dispatch }}>
+      {props.children}
     </TodosContext.Provider>
     )
-  }
+
 }
 

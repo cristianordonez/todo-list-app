@@ -1,6 +1,6 @@
 .todoform {
-  display: grid;
-  align-items: center stretch;
-  justify-content: center;
-  padding: 35px;
+    display: grid;
+    align-items: center stretch;
+    justify-content: center;
+    padding: 35px;
 }
