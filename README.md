@@ -1,6 +1,9 @@
 # 💥 Todo List App  
 Web application built with React to showcase proficiency with React hooks and Material UI
 
+## 👻 Live Link (if available)
+View live deployment [here]("https://cristianordonez.github.io/todolist-hooks-app/") or see the demo below. 
+
 ## 👾 Features & Usage
 - Ability to add, edit and delete todos
 - Todos persist between refreshes on local storage
