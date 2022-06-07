@@ -46,35 +46,26 @@ function ToDoApp() {
     }
 
     return (
-        <Paper
-            style={{
-                padding: 0,
-                margin: 0,
-                height: '100vh',
-                backgroundColor: '#fafafa',
-            }}
-            elevation={0}
-        >
+        <>
             <AppBar
                 color='primary'
                 position='static'
                 style={{ height: '64px' }}
             >
                 <Toolbar>
-                    <Typography color='inherit'>
-                        CRISTIAN'S TODO APP WITH REACT HOOKS
-                    </Typography>
+                    <Typography color='inherit'>TODO APP</Typography>
                 </Toolbar>
             </AppBar>
-
-            <TodoForm addToDo={addToDo} />
-            <TodoList
-                addToDo={addToDo}
-                handleEdit={handleEdit}
-                todos={todos}
-                removeToDo={removeToDo}
-            />
-        </Paper>
+            <div style={{ marginLeft: '25rem', marginRight: '25rem' }}>
+                <TodoForm addToDo={addToDo} />
+                <TodoList
+                    addToDo={addToDo}
+                    handleEdit={handleEdit}
+                    todos={todos}
+                    removeToDo={removeToDo}
+                />
+            </div>
+        </>
     )
 }
 
