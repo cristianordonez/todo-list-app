@@ -4,7 +4,7 @@ Web application built with React to showcase proficiency with React hooks and Ma
 
 ## Live Link
 
-View live deployment [here](https://cristianordonez.github.io/todolist-hooks-app/) or see the demo below.
+View live deployment [here](https://cristianordonez.github.io/todo-list-app/) or see the demo below.
 
 ## Features & Usage
 
