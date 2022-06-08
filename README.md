@@ -1,6 +1,6 @@
 # Todo List App
 
-Web application built with React to showcase proficiency with React hooks and Material UI
+Frontend Web application built with React that allows you to save, edit, and delete todo tasks. All saved on your local storage so that they persist after refreshing the page.
 
 ## Live Link
 
@@ -26,6 +26,7 @@ This project was built using Next.js and the following technologies:
 <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
 <img src="https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white" />
 <img src="https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E" />
+<img src="https://img.shields.io/badge/Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white" />
 
 ## Setup/ Installation
 
@@ -37,7 +38,20 @@ In the project directory, you can start the development server using the followi
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
-You may also see any lint errors in the console.
+
+Then run end to end tests to to check functionality:
+
+### `npm test`
+
+If deploying with Github Pages, first create production build:
+
+### `npm run predeploy`
+
+Then complete deployment:
+
+### `npm run deploy`
+
+Make sure that "homepage" key in package.json represents url of your Github Page.
 
 ## Resources (include useful or related links)
 
