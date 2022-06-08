@@ -19,9 +19,9 @@ function TodoItem({ task, completed, removeToDo, id, handleEdit, addToDo }) {
     const [isEditing, setIsEditing] = useToggleState(false)
     const [value, handleChange, reset] = useInputState(task)
 
-    //* will render normally if isEditing is false, otherwise will render text fiedl
+    //* will render normally if isEditing is false, otherwise will render text field
     return (
-        <div className='todoitem'>
+        <div className='todoitem' data-testid='todoitem'>
             {isEditing ? (
                 <Paper
                     style={{
@@ -44,6 +44,7 @@ function TodoItem({ task, completed, removeToDo, id, handleEdit, addToDo }) {
                                 value={value}
                                 label={`Edit Todo: ${task}`}
                                 variant='outlined'
+                                data-testid='edit-text-field'
                                 sx={{ width: 600 }}
                             />
                             <Button
@@ -80,6 +81,7 @@ function TodoItem({ task, completed, removeToDo, id, handleEdit, addToDo }) {
                             }}
                         />
                         <ListItemText
+                            data-testid='todo-item-text'
                             style={{
                                 textDecoration: isOn ? 'line-through' : 'none',
                             }}

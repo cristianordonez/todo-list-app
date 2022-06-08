@@ -25,6 +25,7 @@ function TodoForm(props) {
                     onChange={handleChange}
                     value={value}
                     label='Enter New Todo'
+                    data-testid='enter-todo-form'
                     variant='outlined'
                     sx={{ width: 600 }}
                 />

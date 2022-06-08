@@ -24,7 +24,7 @@
         "deploy": "gh-pages -d build",
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "test": "react-scripts test",
+        "test": "cypress open",
         "eject": "react-scripts eject"
     },
     "eslintConfig": {
@@ -45,5 +45,9 @@
             "last 1 safari version"
         ]
     },
-    "homepage": "https://cristianordonez.github.io/todo-list-app/"
+    "homepage": "https://cristianordonez.github.io/todo-list-app/",
+    "devDependencies": {
+        "@testing-library/cypress": "^8.0.3",
+        "cypress": "^10.0.3"
+    }
 }
