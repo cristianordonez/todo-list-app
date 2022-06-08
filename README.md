@@ -14,7 +14,7 @@ View live deployment [here](https://cristianordonez.github.io/todo-list-app/) or
 
 ## Demo
 
-![todolist](https://user-images.githubusercontent.com/71888675/158305918-b395f324-4290-4a7c-a4a6-e05c1506465b.gif)
+![todolist](./ezgif.com-gif-maker.gif)
 
 ## Tech Stack
 
@@ -33,7 +33,9 @@ This project was built using Next.js and the following technologies:
 Clone this repository to local machine then navigate to directory in the console.
 In the project directory, you can start the development server using the following script:
 
-### `npm start`
+```bash
+npm start
+```
 
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
@@ -41,15 +43,21 @@ The page will reload when you make changes.\
 
 Then run end to end tests to to check functionality:
 
-### `npm test`
+```bash
+npm test
+```
 
 If deploying with Github Pages, first create production build:
 
-### `npm run predeploy`
+```bash
+npm run predeploy
+```
 
 Then complete deployment:
 
-### `npm run deploy`
+```bash
+npm run deploy
+```
 
 Make sure that "homepage" key in package.json represents url of your Github Page.
 
