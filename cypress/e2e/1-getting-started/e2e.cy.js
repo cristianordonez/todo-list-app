@@ -45,8 +45,18 @@ describe('Web app contains CRUD functionalities', () => {
             .should('contain', 'wash dishes')
     })
 
-    // //allows user to delete todos
-    // it('allows uer to create todo ', () => {
-    //     cy.visit('http://localhost:3000/todo-list-app')
-    // })
+    it('allows user to delete todos', () => {
+        cy.visit('http://localhost:3000/todo-list-app')
+        cy.findByTestId('enter-todo-form').type('do laundry')
+        cy.get('form').submit()
+        cy.findByTestId('enter-todo-form').type('walk dog')
+        cy.get('form').submit()
+        cy.findByTestId('enter-todo-form').type('fold clothing')
+        cy.get('form').submit()
+        cy.get('.todoitem').should('have.length', 4)
+        for (let i = 0; i < 4; i++) {
+            cy.findAllByLabelText('Delete').first().click()
+        }
+        cy.get('.todoitem').should('not.exist')
+    })
 })
