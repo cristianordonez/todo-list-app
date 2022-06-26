@@ -15,98 +15,84 @@ import CancelIcon from '@mui/icons-material/Cancel'
 import Button from '@mui/material/Button'
 
 function TodoItem({ task, completed, removeToDo, id, handleEdit, addToDo }) {
-    const [isOn, setIsOn] = useToggleState(completed)
-    const [isEditing, setIsEditing] = useToggleState(false)
-    const [value, handleChange, reset] = useInputState(task)
+  const [isOn, setIsOn] = useToggleState(completed)
+  const [isEditing, setIsEditing] = useToggleState(false)
+  const [value, handleChange, reset] = useInputState(task)
 
-    //* will render normally if isEditing is false, otherwise will render text field
-    return (
-        <div className='todoitem' data-testid='todoitem'>
-            {isEditing ? (
-                <Paper
-                    style={{
-                        margin: 4,
-                        padding: 5,
-                    }}
-                    elevation={10}
-                >
-                    <form
-                        onSubmit={(e) => {
-                            e.preventDefault()
-                            handleEdit(id, value)
-                            reset()
-                            setIsEditing()
-                        }}
-                    >
-                        <div className='todoitem-edit-form'>
-                            <TextField
-                                onChange={handleChange}
-                                value={value}
-                                label={`Edit Todo: ${task}`}
-                                variant='outlined'
-                                data-testid='edit-text-field'
-                                sx={{ width: 600 }}
-                            />
-                            <Button
-                                type='submit'
-                                color='success'
-                                startIcon={<PublishIcon />}
-                            >
-                                Submit Todo
-                            </Button>
-                            <Button
-                                color='error'
-                                onClick={(e) => setIsEditing()}
-                                aria-label='Cancel'
-                                startIcon={<CancelIcon />}
-                            >
-                                Cancel
-                            </Button>
-                        </div>
-                    </form>
-                </Paper>
-            ) : (
-                <Paper
-                    style={{
-                        margin: 4,
-                        padding: 1,
-                    }}
-                    elevation={2}
-                >
-                    <ListItem>
-                        <Checkbox
-                            checked={isOn}
-                            onChange={(e) => {
-                                setIsOn()
-                            }}
-                        />
-                        <ListItemText
-                            data-testid='todo-item-text'
-                            style={{
-                                textDecoration: isOn ? 'line-through' : 'none',
-                            }}
-                        >
-                            {task}
-                        </ListItemText>
-                        <ListItemSecondaryAction>
-                            <IconButton
-                                onClick={(e) => setIsEditing()}
-                                aria-label='Edit'
-                            >
-                                <EditIcon />
-                            </IconButton>
-                            <IconButton
-                                onClick={() => removeToDo(id)}
-                                aria-label='Delete'
-                            >
-                                <DeleteIcon />
-                            </IconButton>
-                        </ListItemSecondaryAction>
-                    </ListItem>
-                </Paper>
-            )}
-        </div>
-    )
+  //* will render normally if isEditing is false, otherwise will render text field
+  return (
+    <div data-testid='todoitem' className='todoitem'>
+      {isEditing ? (
+        <Paper elevation={10}>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault()
+              handleEdit(id, value)
+              reset()
+              setIsEditing()
+            }}
+          >
+            <div className='todoitem-edit-form'>
+              <TextField
+                onChange={handleChange}
+                value={value}
+                label={`Edit Todo: ${task}`}
+                variant='outlined'
+                data-testid='edit-text-field'
+                fullWidth
+              />
+              <Button type='submit' color='success' startIcon={<PublishIcon />}>
+                Submit Todo
+              </Button>
+              <Button
+                color='error'
+                onClick={(e) => setIsEditing()}
+                aria-label='Cancel'
+                startIcon={<CancelIcon />}
+              >
+                Cancel
+              </Button>
+            </div>
+          </form>
+        </Paper>
+      ) : (
+        <Paper
+          style={{
+            margin: 4,
+            padding: 1,
+          }}
+          elevation={2}
+        >
+          <ListItem>
+            <Checkbox
+              checked={isOn}
+              onChange={(e) => {
+                setIsOn()
+              }}
+            />
+            <ListItemText
+              data-testid='todo-item-text'
+              style={{
+                textDecoration: isOn ? 'line-through' : 'none',
+                wordBreak: 'break-word',
+                maxWidth: '15rem',
+              }}
+            >
+              {task}
+            </ListItemText>
+            <ListItemSecondaryAction>
+              <IconButton onClick={(e) => setIsEditing()} aria-label='Edit'>
+                <EditIcon />
+              </IconButton>
+              <IconButton onClick={() => removeToDo(id)} aria-label='Delete'>
+                <DeleteIcon />
+              </IconButton>
+            </ListItemSecondaryAction>
+          </ListItem>
+        </Paper>
+      )}
+    </div>
+  )
 }
 
 export default TodoItem
