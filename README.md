@@ -1,6 +1,6 @@
 # Todo List App
 
-Frontend Web application built with React that allows you to save, edit, and delete todo tasks. All tasks are saved on your local storage so that they persist after refreshing the page.
+Frontend Web application built with React that allows you to save, edit, and delete todo tasks. All tasks are saved on your local storage so that they persist after refreshing the page. Built to have a quick and easy way to jot down different tasks while working on multiple projects.
 
 ## Live Link
 
@@ -8,9 +8,9 @@ View live deployment [here](https://cristianordonez.github.io/todo-list-app/) or
 
 ## Features & Usage
 
--   Ability to add, edit and delete todos
--   Todos persist between refreshes on local storage
--   Todo list items appear with strikethrough when marked as completed
+- Ability to add, edit and delete todos
+- Todos persist between refreshes on local storage
+- Todo list items appear with strikethrough when marked as completed
 
 ## Demo
 
